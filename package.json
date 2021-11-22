@@ -72,8 +72,6 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^6.4.0",
-    "cypress": "^9.0.0",
     "json-server": "^0.17.0",
     "json-server-auth": "^2.1.0"
   }
