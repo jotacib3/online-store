@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { App } from './app';
-import { store } from './app/store';
+import { store } from './store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
