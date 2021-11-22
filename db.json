@@ -57,5 +57,21 @@
       "mobile": "+5355824756",
       "policy": true
     }
+  ],
+  "profiles": [
+    {
+      "id": "ew13dfs14d",
+      "email": "jota@asd.com",
+      "password": "asd123",
+      "name": "Juan Jose",
+      "avatar": "/images/avatar_ad.png",
+      "canHire": true,
+      "country": "Cuba",
+      "city": "NY",
+      "isPublic": true,
+      "phone": "+5355824756",
+      "role": "admin",
+      "state": "Havana"
+    }
   ]
 }
