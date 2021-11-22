@@ -1,0 +1,61 @@
+{
+  "departments": [
+    { "id": 1, "name": "Clothes" },
+    { "id": 2, "name": "Shoes" }
+  ],
+  "categories": [
+    { "id": 1, "name": "Baby clothes", "departmentsId": 1 },
+    { "id": 2, "name": "Women's clothes", "departmentsId": 1 },
+    { "id": 3, "name": "Men's clothes", "departmentsId": 1 },
+    { "id": 4, "name": "Baby shoes", "departmentsId": 2 },
+    { "id": 5, "name": "Women's shoes", "departmentsId": 2 },
+    { "id": 6, "name": "Baby shoes", "departmentsId": 2 }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "flip flops rebook",
+      "cost": 25.9,
+      "categoriesId": 4,
+      "departmentsId": 1
+    },
+    {
+      "id": 2,
+      "name": "Kickass Kicks",
+      "cost": 34.67,
+      "categoriesId": 1,
+      "departmentsId": 1
+    },
+    {
+      "id": 3,
+      "name": "Little Goody New Shoes",
+      "cost": 32.54,
+      "categoriesId": 4,
+      "departmentsId": 2
+    },
+    {
+      "id": 4,
+      "name": "Neat Feet",
+      "cost": 25.67,
+      "categoriesId": 1,
+      "departmentsId": 1
+    },
+    {
+      "id": 5,
+      "name": "Runway Lingerie",
+      "cost": 18.95,
+      "categoriesId": 2,
+      "departmentsId": 2
+    }
+  ],
+  "users": [
+    {
+      "id": "ew13dfs14d",
+      "email": "jota@asd.com",
+      "password": "asd123",
+      "name": "Juan Jose",
+      "mobile": "+5355824756",
+      "policy": true
+    }
+  ]
+}
