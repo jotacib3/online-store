@@ -52,7 +52,7 @@
     {
       "id": "ew13dfs14d",
       "email": "jota@asd.com",
-      "password": "asd123",
+      "password": "$2a$10$.vEI32nHFyG15ZACR7q/J.DNT/7iFC1Gfi2fFPMsG09LCPtwk0q/.",
       "name": "Juan Jose",
       "mobile": "+5355824756",
       "policy": true
@@ -62,7 +62,7 @@
     {
       "id": "ew13dfs14d",
       "email": "jota@asd.com",
-      "password": "asd123",
+      "password": "$2a$10$.vEI32nHFyG15ZACR7q/J.DNT/7iFC1Gfi2fFPMsG09LCPtwk0q/.",
       "name": "Juan Jose",
       "avatar": "/images/avatar_ad.png",
       "canHire": true,
