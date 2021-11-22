@@ -9,5 +9,5 @@ export const EndPoints = {
   categories: 'categories',
   login: 'login',
   register: 'register',
-  users: 'users',
+  users: 'profiles',
 };
