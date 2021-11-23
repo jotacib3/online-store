@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import { Alert } from '@material-ui/lab';
 import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -22,6 +23,7 @@ import { login } from '../../../../../services/authService';
 
 const LoginForm = () => {
   const key = 'token';
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [error, setError] = useState('');
 
@@ -53,6 +55,7 @@ const LoginForm = () => {
           formikHelpers.resetForm();
           formikHelpers.setStatus({ success: true });
           formikHelpers.setSubmitting(false);
+          navigate('/dashboard');
         } catch (e) {
           setError('Failed. Please try again.');
           console.log(e.message);
