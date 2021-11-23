@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { Alert } from '@material-ui/lab';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -27,6 +28,7 @@ import { register } from '../../../../../services/authService';
 
 const RegisterForm = () => {
   const key = 'token';
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [error, setError] = useState('');
   const [isAlertVisible, setAlertVisible] = useState(false);
@@ -65,6 +67,7 @@ const RegisterForm = () => {
           formikHelpers.resetForm();
           formikHelpers.setStatus({ success: true });
           formikHelpers.setSubmitting(false);
+          navigate('/dashboard');
         } catch (e) {
           setError('Failed. Please try again.');
           console.log(e.message);
