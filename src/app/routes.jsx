@@ -7,7 +7,7 @@ import DashboardLayout from './layouts/dashboard-layout';
 import HomePage from './views/pages/HomePage';
 import NotFoundPage from './views/pages/NotFoundPage';
 // import ProtectedRoute from './components/protected-route';
-import ProtectedOutlet from './components/protected-outlet';
+import ProtectedOutlet from './components/Route/protected-outlet';
 
 const DashboardPage = lazy(() =>
   import('./views/dashboard/dashboard-default-content'),

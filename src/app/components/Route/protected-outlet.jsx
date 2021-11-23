@@ -3,7 +3,10 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import jwt_decode from 'jwt-decode';
 
-import { saveClaimsAction, saveTokenAction } from '../../store/auth/authSlice';
+import {
+  saveClaimsAction,
+  saveTokenAction,
+} from '../../../store/auth/authSlice';
 
 const ProtectedOutlet = () => {
   const dispatch = useDispatch();
