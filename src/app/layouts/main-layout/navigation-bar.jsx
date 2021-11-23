@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
+import HeaderProfile from '../../components/header-profile';
 
 import {
   AppBar,
@@ -12,6 +14,7 @@ import {
 
 export default function NavigationBar() {
   const classes = useStyles();
+  const { claims } = useSelector(state => state.auth);
   const mobileDevice = useMediaQuery('(max-width:650px)');
 
   return (
@@ -32,6 +35,22 @@ export default function NavigationBar() {
               About
             </Link>
           </Button>
+          {claims ? (
+            <>
+              <Button className={classes.menuButton} color="inherit">
+                <Link className={classes.link} to={'/dashboard'}>
+                  Dashboard
+                </Link>
+              </Button>
+              <HeaderProfile />
+            </>
+          ) : (
+            <Button className={classes.menuButton} color="inherit">
+              <Link className={classes.link} to={'/login'}>
+                Login
+              </Link>
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </div>
