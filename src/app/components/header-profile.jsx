@@ -38,7 +38,6 @@ const HeaderProfile = () => {
     <div>
       <Box display="flex" justifyContent="center" onClick={handleClick}>
         <Avatar
-          variant={'circle'}
           alt="User"
           className={clsx(classes.avatar, classes.small)}
           src={profile.avatar}
