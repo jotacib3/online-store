@@ -11,7 +11,12 @@ const DashboardLayout = ({ children }) => {
   const mobileDevice = useMediaQuery('(max-width:650px)');
 
   return (
-    <Grid container direction="row" alignItems="flex-start">
+    <Grid
+      container
+      direction="row"
+      justifyContent="flex-start"
+      alignItems="flex-start"
+    >
       <DashboardSidebarNavigation />{' '}
       <div className={classes.wrapper}>
         <div className={classes.contentContainer}>
@@ -56,7 +61,6 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flex: '1 1 auto',
     overflow: 'hidden',
-    paddingTop: 64,
     [theme.breakpoints.up('lg')]: {
       paddingLeft: 256,
     },
