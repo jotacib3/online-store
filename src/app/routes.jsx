@@ -20,6 +20,10 @@ const DashboardCategoryPage = lazy(() =>
 const DashboardProductPage = lazy(() =>
   import('./views/dashboard/product/ProductListView'),
 );
+
+const DashboardPricingPage = lazy(() =>
+  import('./views/pages/pricing/PricingPage'),
+);
 const AboutPage = lazy(() => import('./views/pages/AboutPage'));
 const AuthPage = lazy(() => import('./views/pages/auth/AuthPage'));
 
@@ -97,6 +101,19 @@ export const AppRoutes = () => {
               >
                 <DashboardLayout>
                   <DashboardProductPage />
+                </DashboardLayout>
+              </Suspense>
+            }
+            exact
+          />
+          <Route
+            path={'/dashboard/pricing'}
+            element={
+              <Suspense
+                fallback={<LinearProgress style={{ margin: '10rem' }} />}
+              >
+                <DashboardLayout>
+                  <DashboardPricingPage />
                 </DashboardLayout>
               </Suspense>
             }
