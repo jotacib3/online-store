@@ -41,7 +41,7 @@ const DashboardSidebarNavigation = () => {
 
   useEffect(() => {
     dispatch(getProfileAction(claims.sub));
-  }, []);
+  }, [dispatch, claims.sub]);
 
   const handleClick = () => {
     setOpen(!open);
