@@ -1,11 +1,7 @@
 import api, { EndPoints } from '../api/axios';
 
 export async function getCategories() {
-  return await api.get(EndPoints.categories);
-}
-
-export async function getCategoryById(id) {
-  return await api.get(`${EndPoints.categories}/${id}?_expand=departments`);
+  return await api.get(`${EndPoints.categories}?_expand=departments`);
 }
 
 export async function postCategory(category) {
