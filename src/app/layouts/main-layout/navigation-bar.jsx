@@ -4,12 +4,15 @@ import { useSelector } from 'react-redux';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import HeaderProfile from '../../components/header-profile';
 
+import MenuIcon from '@material-ui/icons/Menu';
 import {
   AppBar,
   Toolbar,
   Button,
   useMediaQuery,
   colors,
+  Typography,
+  IconButton,
 } from '@material-ui/core';
 
 export default function NavigationBar() {
@@ -21,10 +24,23 @@ export default function NavigationBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Link className={`${classes.link} ${classes.title}`} to={'/'}>
-            {!mobileDevice && 'LOGO'}
-          </Link>
-
+          {!mobileDevice && (
+            <>
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                <Link className={classes.link} to={'/'}>
+                  <MenuIcon />
+                </Link>
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                Online Store
+              </Typography>
+            </>
+          )}
           <Button className={classes.menuButton} color="inherit">
             <Link className={classes.link} to={'/'}>
               Home
