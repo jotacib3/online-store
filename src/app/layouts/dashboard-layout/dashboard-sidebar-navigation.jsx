@@ -125,18 +125,18 @@ const DashboardSidebarNavigation = () => {
                   </ListItem>
                 </Link>
                 <Divider />
-                <Link className={classes.link} to={`${pathname}/account`}>
-                  <ListItem button>
-                    <ListItemIcon>
-                      <UserIcon />
-                    </ListItemIcon>
-                  </ListItem>
-                </Link>
-                <Divider />
                 <Link className={classes.link} to={`/pricing`}>
                   <ListItem button>
                     <ListItemIcon>
                       <DollarSignIcon />
+                    </ListItemIcon>
+                  </ListItem>
+                </Link>
+                <Divider />
+                <Link className={classes.link} to={`${pathname}/account`}>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <UserIcon />
                     </ListItemIcon>
                   </ListItem>
                 </Link>
@@ -190,6 +190,14 @@ const DashboardSidebarNavigation = () => {
                   </ListItem>
                 </Link>
                 <ListSubheader>Pages</ListSubheader>
+                <Link className={classes.link} to={`${pathname}/pricing`}>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <DollarSignIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={'Pricing'} />
+                  </ListItem>
+                </Link>
                 <Link className={classes.link} to={`${pathname}/account`}>
                   <ListItem button>
                     <ListItemIcon>
