@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   Avatar,
   Box,
-  Collapse,
   Divider,
   ListSubheader,
   Typography,
@@ -21,21 +20,20 @@ import {
   ShoppingCart as ShoppingCartIcon,
   ChevronUp as ChevronUpIcon,
   ChevronDown as ChevronDownIcon,
-  List as ListIcon,
-  FilePlus as FilePlusIcon,
-  Calendar as CalendarIcon,
+  Package as PackageIcon,
   User as UserIcon,
   DollarSign as DollarSignIcon,
   LogOut as LogOutIcon,
+  Clipboard as ClipboardIcon,
 } from 'react-feather';
+import clsx from 'clsx';
 
 import { getProfileAction } from '../../../store/profile/profileAsyncActions';
-import clsx from 'clsx';
 
 const DashboardSidebarNavigation = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { pathname } = useLocation();
+  const pathname = '/dashboard';
   const { profile } = useSelector(state => state.profile);
   const { claims } = useSelector(state => state.auth);
   const [open, setOpen] = useState(false);
@@ -103,35 +101,26 @@ const DashboardSidebarNavigation = () => {
                   {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
                 </ListItem>
                 <Divider />
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <Link
-                      className={classes.link}
-                      to={`${pathname}/list-products`}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <ListIcon />
-                        </ListItemIcon>
-                      </ListItem>
-                    </Link>
-                    <Link
-                      className={classes.link}
-                      to={`${pathname}/create-product`}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <FilePlusIcon />
-                        </ListItemIcon>
-                      </ListItem>
-                    </Link>
-                  </List>
-                </Collapse>
-                <Divider />
-                <Link className={classes.link} to={`${pathname}/calendar`}>
+                <Link className={classes.link} to={`${pathname}/products`}>
                   <ListItem button>
                     <ListItemIcon>
-                      <CalendarIcon />
+                      <ShoppingCartIcon />
+                    </ListItemIcon>
+                  </ListItem>
+                </Link>
+                <Divider />
+                <Link className={classes.link} to={`${pathname}/departments`}>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <PackageIcon />
+                    </ListItemIcon>
+                  </ListItem>
+                </Link>
+                <Divider />
+                <Link className={classes.link} to={`${pathname}/categories`}>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <ClipboardIcon />
                     </ListItemIcon>
                   </ListItem>
                 </Link>
@@ -176,50 +165,30 @@ const DashboardSidebarNavigation = () => {
                 </Link>
 
                 <ListSubheader>Management</ListSubheader>
-                <ListItem button onClick={handleClick}>
-                  <ListItemIcon>
-                    <ShoppingCartIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Products" />
-                  {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
-                </ListItem>
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <Link
-                      className={classes.link}
-                      to={`${pathname}/list-products`}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <ListIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="List Products" />
-                      </ListItem>
-                    </Link>
-                    <Link
-                      className={classes.link}
-                      to={`${pathname}/create-product`}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <FilePlusIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Create Product" />
-                      </ListItem>
-                    </Link>
-                  </List>
-                </Collapse>
-
-                <ListSubheader>Applications</ListSubheader>
-                <Link className={classes.link} to={`${pathname}/calendar`}>
+                <Link className={classes.link} to={`${pathname}/products`}>
                   <ListItem button>
                     <ListItemIcon>
-                      <CalendarIcon />
+                      <ShoppingCartIcon />
                     </ListItemIcon>
-                    <ListItemText primary={'Calendar'} />
+                    <ListItemText primary={'Products'} />
                   </ListItem>
                 </Link>
-
+                <Link className={classes.link} to={`${pathname}/departments`}>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <PackageIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={'Departments'} />
+                  </ListItem>
+                </Link>
+                <Link className={classes.link} to={`${pathname}/categories`}>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <ClipboardIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={'Categories'} />
+                  </ListItem>
+                </Link>
                 <ListSubheader>Pages</ListSubheader>
                 <Link className={classes.link} to={`${pathname}/account`}>
                   <ListItem button>
@@ -229,15 +198,6 @@ const DashboardSidebarNavigation = () => {
                     <ListItemText primary={'Account'} />
                   </ListItem>
                 </Link>
-                <Link className={classes.link} to={`/pricing`}>
-                  <ListItem button>
-                    <ListItemIcon>
-                      <DollarSignIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={'Pricing'} />
-                  </ListItem>
-                </Link>
-
                 <a className={classes.link} href={'/'}>
                   <ListItem button onClick={handleLogout}>
                     <ListItemIcon>
