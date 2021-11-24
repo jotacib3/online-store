@@ -1,12 +1,8 @@
 import api, { EndPoints } from '../api/axios';
 
 export async function getProducts() {
-  return await api.get(EndPoints.products);
-}
-
-export async function getProductById(productId) {
   return await api.get(
-    `${EndPoints.products}/${productId}?_expand=categories&_expand=departments`,
+    `${EndPoints.products}?_expand=categories&_expand=departments`,
   );
 }
 
