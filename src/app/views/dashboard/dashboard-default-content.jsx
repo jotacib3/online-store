@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Chart from 'react-apexcharts';
 import { makeStyles } from '@material-ui/styles';
 import {
   Box,
@@ -8,52 +7,28 @@ import {
   Container,
   Grid,
   Typography,
-  useTheme,
+  useMediaQuery,
 } from '@material-ui/core';
 
 import Page from '../../components/page';
-import { getDepartments } from '../../../services/departmentService';
 
 const DashboardDefaultContent = () => {
   const classes = useStyles();
-  const theme = useTheme();
-
-  const [departments, setDepartments] = useState([]);
-
-  useEffect(() => {
-    fetchDepartments().then();
-  }, []);
-
-  const fetchDepartments = async () => {
-    const { data } = await getDepartments();
-    console.log(data);
-    setDepartments(data);
-  };
+  const mobileDevice = useMediaQuery('(max-width:650px)');
 
   return (
     <Page className={classes.root} title="Dashboard">
-      <Container maxWidth={'sm'}>
-        <Typography variant="h4" color="textPrimary">
-          Dashboard
-        </Typography>
-        <Box my={5}>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Card>
-                <CardContent>
-                  <Typography variant="h5" color="textPrimary">
-                    Departments
-                  </Typography>
-                  {/* <Chart
-                    options={getChartStyling(theme)}
-                    series={departments}
-                    type="bar"
-                    height={'100%'}
-                  /> */}
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
+      <Container>
+        <Box
+          height={mobileDevice ? '50vh' : '100vh'}
+          display={'flex'}
+          flexDirection={'column'}
+          justifyContent={'center'}
+          alignItems={'center'}
+        >
+          <Typography variant={mobileDevice ? 'h4' : 'h1'}>
+            Dashboard Page 🙋🏿
+          </Typography>
         </Box>
       </Container>
     </Page>
