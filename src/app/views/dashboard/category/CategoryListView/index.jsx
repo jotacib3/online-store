@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 
 import Header from './Header';
-import Results from './Results';
+import Results from '../../../../components/Table/table';
 import Page from '../../../../components/page';
 import { getAllDepartments } from '../../../../../store/department/departmentAsyncActions';
 import {
@@ -77,6 +77,7 @@ const DepartmentListView = () => {
         <Header />
         <Box mt={3}>
           <Results
+            tableName="Categories"
             data={categories.map(o => ({ ...o }))}
             columns={columns.map(o => ({ ...o }))}
             addRow={handleAddRow}

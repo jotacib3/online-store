@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 
 import Header from './Header';
-import Results from './Results';
+import Results from '../../../../components/Table/table';
 import Page from '../../../../components/page';
 import {
   createDepartment,
@@ -21,7 +21,10 @@ import {
 
 const DepartmentListView = () => {
   const classes = useStyles();
-
+  const columns = [
+    { title: 'Id', field: 'id', hidden: true },
+    { title: 'Name', field: 'name' },
+  ];
   const departments = useSelector(state => state.departments.data);
   const loading = useSelector(state => state.departments.loading);
   const dispatch = useDispatch();
@@ -52,7 +55,9 @@ const DepartmentListView = () => {
         <Header />
         <Box mt={3}>
           <Results
+            tableName="Departments"
             data={departments.map(o => ({ ...o }))}
+            columns={columns}
             addRow={handleAddRow}
             editRow={handleEditRow}
             deleteRow={handleDeleteRow}
