@@ -1,10 +1,16 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import authReducer from './auth/authSlice';
-import profileSlice from './profile/profileSlice';
+import categoryReducer from './category/categorySlice';
+import productReducer from './product/productSlice';
+import departmentReducer from './department/departmentSlice';
+import profileReducer from './profile/profileSlice';
 
 const injectedReducers = {
   auth: authReducer,
-  profile: profileSlice,
+  profile: profileReducer,
+  departments: departmentReducer,
+  categories: categoryReducer,
+  products: productReducer,
 };
 
 const rootReducer = combineReducers({
